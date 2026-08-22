@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GovPay</title>
+
+    <link rel="stylesheet" href="govpay.css">
+    <link href="select2.min.css"
+          rel="stylesheet" />
+</head>
+<body>
+
+    <div class="govpay-home">
+
+        <!-- Top Branding -->
+        <div class="top-brand-bar">
+
+            <div class="brand-left">
+                <img src="images/6000_testbabnk.png" alt="GovPay Logo" />
+            </div>
+
+            <div class="brand-right">
+                <img src="images/govpay-logo.png" alt="GovPay Logo" />
+                
+            </div>
+
+        </div>
+
+        <!-- HERO SECTION -->
+        <div class="hero-banner">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+                <h1>
+                    Do You Know
+                    <span>Your Demerit Score?</span>
+                </h1>
+
+                <p>
+                    Enter your driving licence number to check your
+                    current demerit score and understand how the
+                    upcoming Spot Fine Demerit Point System works.
+                </p>
+
+                <div class="demerit-card">
+
+                    <h3>
+                        Enter Your Driving Licence Number
+                    </h3>
+
+                    <div class="demerit-input-wrap">
+
+                        <div class="demerit-icon">
+                            <i class="fa fa-id-card">🪪</i>
+                        </div>
+
+                        <input type="text"
+                               placeholder="Enter your Driving Licence Number" 
+                               id="txtDrivingLicence"
+                               name="txtDrivingLicence"/>
+
+                    </div>
+
+                    <button class="btn-check-score">
+
+                        Check My Score
+
+                        <span>→</span>
+
+                    </button>
+
+                    <div class="secure-note">
+
+                        <i class="fa fa-lock"></i>
+
+                        Your driving licence information is handled securely.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="select2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var fineScoreMap = {
+                "1": 1,
+                "2": 5,
+                "3": 10,
+                "4": 2,
+                "5": 15,
+                "6": 34,
+                "7": 6,
+                "8": 7,
+                "9": 1,
+                "10": 1,
+                "11": 1,
+                "12": 1
+            };
+
+            $(".btn-check-score").on("click", function () {
+
+                var licenceNo = $("#txtDrivingLicence")
+                    .val()
+                    .trim();
+
+                if (!licenceNo) {
+
+                    alert("Please enter Driving Licence Number");
+
+                    return;
+                }
+
+                $.getJSON("./fine.json", function (data) {
+
+                    var records = data.filter(function (x) {
+
+                        return (
+                            (x.DrivingLicenseNo_Clean || "")
+                                .trim()
+                                .toUpperCase() ===
+                            licenceNo
+                                .trim()
+                                .toUpperCase()
+                        );
+
+                    });
+
+                    var score = 0;
+
+                    records.forEach(function (item) {
+
+                        var fineTypeId =
+                            String(item.fineTypeID || "");
+
+                        var fineCount =
+                            parseInt(item.FineTypeCount || 0);
+
+                        var fineScore =
+                            parseInt(
+                                fineScoreMap[fineTypeId] || 0
+                            );
+
+                        score +=
+                            fineCount * fineScore;
+
+                    });
+
+                    var vehicleNo =
+                        records.length > 0
+                            ? records[0].VehicleNo
+                            : "";
+
+                    sessionStorage.setItem(
+                        "DrivingLicenceNo",
+                        licenceNo
+                    );
+
+                    sessionStorage.setItem(
+                        "VehicleNo",
+                        vehicleNo
+                    );
+
+                    sessionStorage.setItem(
+                        "DrivingScore",
+                        score
+                    );
+
+                    window.location.href =
+                        "TFResult.html";
+
+                });
+
+            });
+
+        });
+
+    </script>
+</body>
+</html>

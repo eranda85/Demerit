@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GovPay</title>
+
+    <link rel="stylesheet" href="govpay.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+          rel="stylesheet" />
+</head>
+<body>
+
+    <div class="govpay-home">
+
+        <!-- HEADER -->
+
+        <div class="top-brand-bar">
+
+            <div class="brand-left">
+                <img src="images/govpay-logo.png" alt="GovPay Logo" />
+            </div>
+
+            <div class="brand-right">
+
+                <img src="images/6000_testbabnk.png" alt="GovPay Logo" />
+            </div>
+
+        </div>
+
+        <!-- LOGO -->
+
+        <!-- HERO BANNER -->
+
+        <section class="hero-banner">
+
+            <div class="hero-content">
+
+                <h1>
+                    Pay Government Services
+                    <span>Easily & Securely</span>
+                </h1>
+
+                <p>
+                    A simple and secure way to make your
+                    government payments online.
+                </p>
+                <div class="hero-features">
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">🛡️</div>
+
+                        <div class="feature-text">
+                            <div class="feature-title">Secure</div>
+                            <div class="feature-desc">
+                                Your payments are protected
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">⚡</div>
+
+                        <div class="feature-text">
+                            <div class="feature-title">Fast</div>
+                            <div class="feature-desc">
+                                Quick and hassle-free
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">✔️</div>
+
+                        <div class="feature-text">
+                            <div class="feature-title">Convenient</div>
+                            <div class="feature-desc">
+                                Pay anytime, anywhere
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+                <img src="images/hero-banner.png" alt="GovPay Logo" />
+            </div>
+
+        </section>
+
+        <!-- SERVICES -->
+
+        <section class="services-section">
+
+            <div class="section-header">
+                <h2>What would you like to pay for?</h2>
+                #View All</a>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card active" data-sectorid="0">
+                    <div class="service-icon">
+                        <img src="images/Sector/2.png" v class="service-icon green">
+                    </div>
+                    <h4>All Services</h4>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon blue">
+                        <img src="images/Sector/1.png" v class="service-icon blue">
+                    </div>
+                    <h4>Traffic & Vehicle</h4>
+                    <p>Fines & Licenses</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon green">
+                        <img src="images/Sector/2.png" v class="service-icon green">
+                    </div>
+                    <h4>Government Services</h4>
+                    <p>Public Services</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon purple">📄</div>
+                    <h4>Certificates</h4>
+                    <p>Birth & Marriage</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon orange">🎓</div>
+                    <h4>Education</h4>
+                    <p>Exam Payments</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon red">🏥</div>
+                    <h4>Health</h4>
+                    <p>Hospital Services</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon gold">💰</div>
+                    <h4>Taxes & Fees</h4>
+                    <p>Government Revenue</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon gold">💰</div>
+                    <h4>Taxes & Fees</h4>
+                    <p>Government Revenue</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="filter-section">
+
+            <div class="filter-grid">
+
+                <div class="filter-item">
+
+                    <label>Organization</label>
+
+                    <select id="ddlOrganization" class="gov-select">
+                        <option value="">Select Organization</option>
+
+                        <option value="1">LankaPay</option>
+                        <option value="2">Department of Motor Traffic</option>
+                        <option value="3">Sri Lanka Police</option>
+                    </select>
+
+                </div>
+
+                <div class="filter-item">
+
+                    <label>Service</label>
+
+                    <select id="ddlService" class="gov-select">
+                        <option value="">Select Service</option>
+
+                        <option value="1">Vehicle License</option>
+                        <option value="2">Traffic Fine</option>
+                        <option value="3">Passport</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="filter-grid">
+
+                <div class="filter-item">
+
+                    <label>Organization</label>
+
+                    <select id="ddlOrganization2" class="gov-select">
+                        <option value="">Select Organization</option>
+
+                        <option value="1">LankaPay</option>
+                        <option value="2">Department of Motor Traffic</option>
+                        <option value="3">Sri Lanka Police</option>
+                    </select>
+
+                </div>
+
+                <div class="filter-item">
+
+                    <label>Service</label>
+
+                    <select id="ddlService2" class="gov-select">
+                        <option value="">Select Service</option>
+
+                        <option value="1">Vehicle License</option>
+                        <option value="2">Traffic Fine</option>
+                        <option value="3">Passport</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="action-section">
+
+                <button type="button"
+                        id="btnCancel"
+                        class="btn-cancel">
+                    Cancel
+                </button>
+
+                <button type="button"
+                        id="btnContinue"
+                        class="btn-continue">
+                    Continue
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('.select2').select2();
+
+            $("#ddlOrganization").select2({
+                placeholder: "Select Organization",
+                allowClear: true,
+                width: "100%"
+            });
+
+            $("#ddlService").select2({
+                placeholder: "Select Service",
+                allowClear: true,
+                width: "100%"
+            });
+
+            $("#ddlOrganization2").select2({
+                placeholder: "Select Organization",
+                allowClear: true,
+                width: "100%"
+            });
+
+            $("#ddlService2").select2({
+                placeholder: "Select Service",
+                allowClear: true,
+                width: "100%"
+            });
+
+        });
+
+        $(document).on('click', '.service-card', function () {
+
+            // remove previous selection
+
+            $('.service-card').removeClass('active');
+
+            // select current
+
+            $(this).addClass('active');
+
+            // get selected sector
+
+            var sectorId = $(this).data('sectorid');
+
+            // store selected sector
+
+            $('#hdnSectorId').val(sectorId);
+
+            // clear organization
+
+            $('#ddlOrganization').val(null).trigger('change');
+
+            // clear service
+
+            $('#ddlService').val(null).trigger('change');
+
+            $('html,body').animate({
+                scrollTop:
+                    $('#ddlOrganization')
+                        .closest('.filter-section')
+                        .offset().top - 80
+            }, 300);
+
+            // load organizations
+            //$('#ddlOrganization').select2('open');
+            //loadOrganizations(sectorId);
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GovPay</title>
+
+    <link rel="stylesheet" href="govpay.css">
+    <link href="select2.min.css"
+          rel="stylesheet" />
+</head>
+<body>
+
+    <div class="govpay-home">
+
+        <!-- Top Branding -->
+        <div class="top-brand-bar">
+
+            <div class="brand-left">
+                <a href="index.html"><img src="images/6000_testbabnk.png" alt="GovPay Logo" /></a>
+            </div>
+
+            <div class="brand-right">
+                <img src="images/govpay-logo.png" alt="GovPay Logo" />
+
+            </div>
+
+        </div>
+
+        <div class="driver-score-card">
+
+            <div class="score-value"
+                 id="lblDrivingScore">
+
+            </div>
+
+            <div class="score-zone"
+                 id="lblScoreZone">
+            </div>
+
+            <div class="score-message"
+                 id="lblScoreMessage">
+            </div>
+
+        </div>
+
+        <section class="filter-section">
+
+            <div class="confirmation-page">
+
+                <div class="confirm-card">
+
+
+                    <div class="confirm-grid">
+
+                        <div class="confirm-item">
+                            <label>Vehicle Number</label>
+                            <span id="lblVehicleNo"></span>
+                        </div>
+
+                        <div class="confirm-item">
+                            <label>Driving License Number</label>
+                            <span id="lblDrivingLicenseNo"></span>
+                        </div>
+
+                        <div class="confirm-item">
+                            <label>Transaction Date</label>
+                            <span>@DateTime.Now.ToString("dd/MM/yyyy")</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- jQuery -->
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="select2.min.js"></script>
+
+    <script>
+
+        function CalScore() {
+            var score =
+                parseInt(
+                    $("#lblDrivingScore").text()
+                ) || 0;
+
+            var zone = "";
+            var message = "";
+            var color = "";
+
+            if (score <= 0) {
+
+                zone = "🎉 Good Job!";
+                message =
+                    "No demerit points recorded. Continue safe driving.";
+
+                color = "#22c55e";
+            }
+            else if (score <= 8) {
+
+                zone = "Safe Zone";
+                message = "Good standing";
+
+                color = "#22c55e";
+            }
+            else if (score <= 16) {
+
+                zone = "Caution Zone";
+                message = "Attention required";
+
+                color = "#f59e0b";
+            }
+            else if (score <= 23) {
+
+                zone = "High Alert";
+                message = "Approaching limit";
+
+                color = "#f97316";
+            }
+            else {
+
+                zone = "Maximum";
+                message =
+                    "Further action may be required";
+
+                color = "#dc2626";
+            }
+
+            $("#lblScoreZone")
+                .text(zone)
+                .css("color", color);
+
+            $("#lblScoreMessage")
+                .text(message);
+
+            $("#lblDrivingScore")
+                .css("color", color);
+        }
+
+        function CallInit() {
+
+            $("#lblDrivingLicenseNo").text(
+                sessionStorage.getItem(
+                    "DrivingLicenceNo"
+                ) || "-"
+            );
+
+            $("#lblVehicleNo").text(
+                sessionStorage.getItem(
+                    "VehicleNo"
+                ) || "-"
+            );
+
+            $("#lblDrivingScore").text(
+                sessionStorage.getItem(
+                    "DrivingScore"
+                ) || "0"
+            );
+
+            CalScore();
+        }
+
+        $(document).ready(function () {
+            $('.select2').select2();
+            CallInit();
+
+            $("#ddlOrganization").select2({
+                placeholder: "Select Organization",
+                allowClear: true,
+                width: "100%"
+            });
+
+            $("#ddlService").select2({
+                placeholder: "Select Service",
+                allowClear: true,
+                width: "100%"
+            });
+
+            $("#ddlOrganization2").select2({
+                placeholder: "Select Organization",
+                allowClear: true,
+                width: "100%"
+            });
+
+            $("#ddlService2").select2({
+                placeholder: "Select Service",
+                allowClear: true,
+                width: "100%"
+            });
+
+        });
+
+        $(document).on('click', '.service-card', function () {
+
+            // remove previous selection
+
+            $('.service-card').removeClass('active');
+
+            // select current
+
+            $(this).addClass('active');
+
+            // get selected sector
+
+            var sectorId = $(this).data('sectorid');
+
+            // store selected sector
+
+            $('#hdnSectorId').val(sectorId);
+
+            // clear organization
+
+            $('#ddlOrganization').val(null).trigger('change');
+
+            // clear service
+
+            $('#ddlService').val(null).trigger('change');
+
+            $('html,body').animate({
+                scrollTop:
+                    $('#ddlOrganization')
+                        .closest('.filter-section')
+                        .offset().top - 80
+            }, 300);
+
+            // load organizations
+            //$('#ddlOrganization').select2('open');
+            //loadOrganizations(sectorId);
+
+        });
+
+    </script>
+</body>
+</html>
