@@ -57,93 +57,109 @@
 
         </section>
 
-        <div class="driver-score-card confirm-card">
-            <section class="page-status">
-
-                <div class="page-status-icon">
-                    ✓
-                </div>
-
-                <div class="page-status-content">
-
-                    <h2>Review & Confirm</h2>
-
-                    <p>
-                        Please review the details below before proceeding with payment.
-                    </p>
-
-                </div>
-
-            </section>
-            <div class="score-value"
-                 id="lblDrivingScore">
-
-            </div>
-
-            <div class="score-zone"
-                 id="lblScoreZone">
-            </div>
-
-            <div class="score-message"
-                 id="lblScoreMessage">
-            </div>
-
-        </div>
-
         <section class="filter-section">
+            <div class="confirm-card">
+                <section class="page-status">
 
-            <div class="confirmation-page">
+                    <div class="page-status-icon">
+                        ✓
+                    </div>
 
-                <div class="confirm-card">
+                    <div class="page-status-content">
 
+                        <h2>Review & Confirm</h2>
 
-                    <div class="confirm-grid">
-
-                        <div class="confirm-item">
-                            <label>Vehicle Number</label>
-                            <span id="lblVehicleNo"></span>
-                        </div>
-
-                        <div class="confirm-item">
-                            <label>Driving License Number</label>
-                            <span id="lblDrivingLicenseNo"></span>
-                        </div>
-
-                        <div class="confirm-item">
-                            <label>Fine Type</label>
-                            <span id="lblFineType">xxxxxxxxxxxx</span>
-                        </div>
-
-                        <div class="confirm-item">
-                            <label>Fine Imposed Date</label>
-                            <span id="lblFineDate">xxxxxxxxxxxx</span>
-                        </div>
-
-                        <div class="confirm-item">
-                            <label>Reference Number</label>
-                            <span id="lblReferenceNo">xxxxxxxxxxxx</span>
-                        </div>
-
-                        <div class="confirm-item">
-                            <label>Transaction Date</label>
-                            <span>xxxxxxxxxxxx</span>
-                        </div>
+                        <p>
+                            Please review the details below before proceeding with payment.
+                        </p>
 
                     </div>
 
-                    <div class="confirm-footer">
+                </section>
+                <div class="confirm-amount-section">
 
-                        <button type="button"
-                                class="btn-continue"
-                                onclick="window.location.href='index.html';">
-                            Pay / Back to Search
-                        </button>
-
+                    <div class="amount-label">
+                        Total Amount
                     </div>
 
+                    <div class="amount-value"
+                         id="lblAmount">
+
+                        LKR 0.00
+
+                    </div>
+                    <div>
+
+                    </div>
                 </div>
+                <div class="confirm-info-message">
+
+                    <i class="fas fa-info-circle"></i>
+
+                    Driver Improvement Score:
+                    <strong id="lblDrivingScore" class="lblDrivingScore-value"></strong>
+                    <div class="score-zone"
+                         id="lblScoreZone">
+                    </div>
+                    <div class="score-message"
+                         id="lblScoreMessage">
+                    </div>
+                </div>
+
             </div>
-        </section>
+
+                <div class="confirmation-page">
+
+                    <div class="confirm-card">
+
+
+                        <div class="confirm-grid">
+
+                            <div class="confirm-item">
+                                <label>Vehicle Number</label>
+                                <span id="lblVehicleNo"></span>
+                            </div>
+
+                            <div class="confirm-item">
+                                <label>Driving License Number</label>
+                                <span id="lblDrivingLicenseNo"></span>
+                            </div>
+
+                            <div class="confirm-item">
+                                <label>Fine Type</label>
+                                <span id="lblFineType">xxxxxxxxxxxx</span>
+                            </div>
+
+                            <div class="confirm-item">
+                                <label>Fine Imposed Date</label>
+                                <span id="lblFineDate">xxxxxxxxxxxx</span>
+                            </div>
+
+                            <div class="confirm-item">
+                                <label>Reference Number</label>
+                                <span id="lblReferenceNo">xxxxxxxxxxxx</span>
+                            </div>
+
+                            <div class="confirm-item">
+                                <label>Transaction Date</label>
+                                <span>xxxxxxxxxxxx</span>
+                            </div>
+
+                        </div>
+
+                        <div class="confirm-footer">
+
+                            <button type="button"
+                                    class="btn-continue"
+                                    onclick="window.location.href='index.html';">
+                                Pay / Back to Search
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
     </div>
 
     <footer class="govpay-footer">
@@ -156,7 +172,7 @@
 
         <div class="footer-copyright">
 
-            © 2026 Government Digital Payment Platform.
+            © @DateTime.Now.Year Government Digital Payment Platform.
             All Rights Reserved.
 
         </div>
@@ -183,7 +199,7 @@
 
             if (score <= 0) {
 
-                zone = "🎉 Good Job!";
+                zone = "Good Job!";
                 message =
                     "No demerit points recorded. Continue safe driving.";
 
