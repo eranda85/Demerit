@@ -279,13 +279,13 @@ body {
 
 .hero-banner {
     position: relative;
-    min-height: 580px;
+    min-height: 380px;
     border-radius: 24px;
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     background-image: url('./images/demerit-background.png');
     background-repeat: no-repeat;
-    background-size: 80% auto;
+    background-size: 65% auto;
     background-position: right center;
 }
 
