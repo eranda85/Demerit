@@ -44,45 +44,45 @@
                 </p>
 
             </div>
-            
+
         </div>
+
         <div class="demerit-card">
 
-                    <h3>
-                        Enter Your Driving Licence Number
-                    </h3>
+            <h3>
+                Enter Your Driving Licence Number
+            </h3>
 
-                    <div class="demerit-input-wrap">
+            <div class="demerit-input-wrap">
 
-                        <div class="demerit-icon">
-                            <i class="fa fa-id-card">🪪</i>
-                        </div>
-
-                        <input type="text"
-                               placeholder="Enter your Driving Licence Number"
-                               id="txtDrivingLicence"
-                               name="txtDrivingLicence" />
-
-                    </div>
-
-                    <button class="btn-check-score">
-
-                        Check My Score
-
-                        <span>→</span>
-
-                    </button>
-
-                    <div class="secure-note">
-
-                        <i class="fa fa-lock"></i>
-
-                        Your driving licence information is handled securely.
-
-                    </div>
-
+                <div class="demerit-icon">
+                    <i class="fa fa-id-card">🪪</i>
                 </div>
 
+                <input type="text"
+                       placeholder="Enter your Driving Licence Number"
+                       id="txtDrivingLicence"
+                       name="txtDrivingLicence" />
+
+            </div>
+
+            <button class="btn-check-score">
+
+                Check My Score
+
+                <span>→</span>
+
+            </button>
+
+            <div class="secure-note">
+
+                <i class="fa fa-lock"></i>
+
+                Your driving licence information is handled securely.
+
+            </div>
+
+        </div>
     </div>
 
     <footer class="govpay-footer">
@@ -113,18 +113,39 @@
         $(document).ready(function () {
 
             var fineScoreMap = {
-                "1": 1,
-                "2": 5,
-                "3": 10,
-                "4": 2,
-                "5": 15,
-                "6": 34,
-                "7": 6,
-                "8": 7,
-                "9": 1,
-                "10": 1,
-                "11": 1,
-                "12": 1
+                "1": 2,   // Identification Plates
+                "2": 2,   // Not Carrying R L
+                "3": 4,   // Contravening R L Provisions
+                "4": 8,   // Driving Emergency Service Vehicles...
+                "5": 8,   // Driving vehicle without a license
+                "6": 10,  // Driving a vehicle loaded with chemicals...
+                "7": 6,   // Not having license to drive specific class of vehicles
+                "8": 2,   // Not carrying D L
+                "9": 4,   // Not having instructors license
+                "10": 6,  // Contravening speed limits
+                "11": 6,  // Disobeying road rules
+                "12": 6,  // Articles obstructing control of the motor vehicle
+                "13": 4,  // Signals by driver
+                "14": 4,  // Reversing for long distance
+                "15": 4,  // Sound or light warning
+                "16": 6,  // Excessive emission smoke
+                "17": 4,  // Riding on running board
+                "18": 4,  // No of persons in front seat
+                "19": 3,  // No use of seat belts
+                "20": 3,  // Not wearing protective helmets
+                "21": 2,  // Distribution of advertisements
+                "22": 6,  // Excessive use of noise
+                "23": 6,  // Disobeying directions and signals of police officers
+                "24": 6,  // Non compliance with traffic signals
+                "25": 6,  // Failure to take precautions when discharging fuel into tank
+                "26": 2,  // Halting or parking
+                "27": 4,  // Non use of precautions when parking
+                "28": 4,  // Excessive carriage of persons in motor car or private coach
+                "29": 6,  // Carriage of passengers in excess in omnibuses
+                "30": 6,  // Carriage on lorry or motor tricycle van of goods in excess
+                "31": 6,  // No of persons carried in a lorry
+                "32": 4,  // Violation regulations of motor vehicles
+                "33": 2   // Failure to carry the emission certificate of fitness certificate
             };
 
             $(".btn-check-score").on("click", function () {
